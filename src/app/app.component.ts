@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import {Component, ViewChild} from '@angular/core';
+import {NgForm} from "@angular/forms";
+
 
 @Component({
   selector: 'app-root',
@@ -6,5 +8,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'BasicTemplateDrivenExercise';
+
+  @ViewChild('f', {static: false}) formInput!: NgForm;
+
+  onSubmit(formInput: NgForm) {
+    console.log(formInput.value)
+  }
+
 }
